@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; img-src 'self' data: *;">
+    <title>Comparador de Precios de Videojuegos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Comparador de Precios de Videojuegos</h1>
+        <form id="game-form">
+            <input type="text" id="game-name" placeholder="Nombre del videojuego" required>
+            <button type="submit">Buscar</button>
+        </form>
+        <div id="filters">
+            <label for="price-range">Rango de Precio:</label>
+            <select id="price-range">
+                <option value="indiferente">Indiferente</option>
+                <option value="0-20">$0 - $20</option>
+                <option value="20-50">$20 - $50</option>
+                <option value="50-100">$50 - $100</option>
+                <option value="100+">$100+</option>
+            </select>
+            <label for="store">Tienda:</label>
+            <select id="store">
+                <option value="all">Todas</option>
+                <option value="steam">Steam</option>
+                <option value="epic">Epic Games</option>
+                <option value="humble">Humble Bundle</option>
+            </select>
+        </div>
+        <div id="results"></div>
+    </div>
+    <script src="renderer.js"></script>
+</body>
+</html>
