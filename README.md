@@ -22,5 +22,6 @@ npm start
 
 
 
-De nota me gustaría tener un sobresaliente ya que la aplicación cumple con todos los requisitos propuestos, 
-utiliza la interfaz gráfica de electrón, se usa la herramienta de puppeteer para hacer web scraping y muestra los datos deseados por el usuario.
+De nota me gustaría tener un sobresaliente alto ya que me parece que la aplicación puede resultarle muy util a muchas personas que tengan aficion por los videojuegos.
+Ademas, cumple con todos los requisitos propuestos, utiliza la interfaz gráfica de electrón, 
+se usa la herramienta de puppeteer para hacer web scraping y muestra los datos deseados por el usuario.
