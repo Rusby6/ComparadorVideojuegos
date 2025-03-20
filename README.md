@@ -21,10 +21,12 @@ Usa Electron para la interfaz de usuario y Puppeteer para realizar web scraping 
 5. Dentro de la ruta del proyecto en la terminal lo iniciamos con este comando:
 npm start
 6. Ingresar al Directorio del Proyecto:
-cd ComparadorVideojuegos
-Ejecuta el siguiente comando para instalar las dependencias necesarias:
-npm install
-Este comando lee el archivo package.json y descarga todos los módulos necesarios para la aplicación.
+  cd ComparadorVideojuegos
+  Ejecuta el siguiente comando para instalar las dependencias necesarias:
+  npm install
+  Este comando lee el archivo package.json y descarga todos los módulos necesarios para la aplicación.
+7. Para ejecutar la aplicacion ponemos el siguiente comando:
+   npm install
 
 
 
