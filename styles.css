@@ -1,7 +1,7 @@
 /* Estilos generales */
 body {
     font-family: 'Press Start 2P', cursive;
-    background: linear-gradient(135deg, #1a1a1a, #000); /* Degradado oscuro */
+    background: linear-gradient(135deg, #1a1a1a, #000);
     color: #0f0;
     margin: 0;
     padding: 0;
@@ -24,33 +24,31 @@ body::before {
     background: 
         linear-gradient(90deg, rgba(0, 255, 0, 0.1) 1px, transparent 1px),
         linear-gradient(180deg, rgba(0, 255, 0, 0.1) 1px, transparent 1px);
-    background-size: 20px 20px; /* Tamaño de la cuadrícula */
+    background-size: 20px 20px;
     pointer-events: none;
     z-index: -1;
 }
 
 /* Contenedor principal */
 .container {
-    background: rgba(0, 0, 0, 0.9); /* Fondo oscuro semi-transparente */
+    background: rgba(0, 0, 0, 0.9);
     backdrop-filter: blur(10px);
-    padding: 3rem; /* Más padding para más espacio */
-    border-radius: 0;
-    border: 4px solid #0f0;
+    padding: 2rem;
+    border-radius: 10px;
+    border: 2px solid #0f0;
     width: 90%;
     max-width: 1200px;
-    text-align: center;
-    box-shadow: 0 0 30px rgba(0, 255, 0, 0.7); /* Sombra neón */
-    overflow-y: auto;
     max-height: 90vh;
+    overflow: hidden;
     position: relative;
     z-index: 1;
 }
 
 /* Título */
 h1 {
-    font-size: 3rem; /* Título más grande */
+    font-size: 3rem;
     color: #0f0;
-    margin-bottom: 2rem; /* Más margen inferior */
+    margin-bottom: 2rem;
     text-shadow: 0 0 10px #0f0, 0 0 20px #0f0;
 }
 
@@ -58,16 +56,16 @@ h1 {
 #game-form {
     display: flex;
     justify-content: center;
-    gap: 1.5rem; /* Más espacio entre elementos */
-    margin-bottom: 2.5rem; /* Más margen inferior */
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
 }
 
 #game-name {
-    padding: 1rem 1.5rem; /* Más padding para más tamaño */
+    padding: 1rem 1.5rem;
     border: 2px solid #0f0;
-    border-radius: 0;
-    width: 80%; /* Más ancho */
-    font-size: 1.2rem; /* Texto más grande */
+    border-radius: 5px;
+    width: 80%;
+    font-size: 1.2rem;
     background: rgba(0, 0, 0, 0.5);
     color: #0f0;
     outline: none;
@@ -84,12 +82,12 @@ h1 {
 }
 
 button[type="submit"] {
-    padding: 1rem 2rem; /* Más padding para más tamaño */
+    padding: 1rem 2rem;
     background: linear-gradient(135deg, #ff0, #f90);
     color: #000;
     border: 2px solid #ff0;
-    border-radius: 0;
-    font-size: 1.2rem; /* Texto más grande */
+    border-radius: 5px;
+    font-size: 1.2rem;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 0 10px rgba(255, 255, 0, 0.5);
@@ -103,55 +101,145 @@ button[type="submit"]:hover {
 /* Filtros */
 #filters {
     display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem; /* Más espacio entre elementos */
+    flex-direction: column;
+    gap: 1.5rem;
     justify-content: center;
-    margin-bottom: 2.5rem; /* Más margen inferior */
-}
-
-#filters label {
-    color: #0f0;
-    font-size: 1.2rem; /* Texto más grande */
-    text-shadow: 0 0 10px #0f0, 0 0 20px #0f0;
-}
-
-#filters select {
-    padding: 0.75rem 1rem; /* Más padding para más tamaño */
-    border: 2px solid #0f0;
-    border-radius: 0;
-    background: rgba(0, 0, 0, 0.5);
-    color: #0f0;
-    font-family: 'Press Start 2P', cursive;
-    outline: none;
-    transition: border-color 0.3s ease, background 0.3s ease;
-    font-size: 1rem; /* Texto más grande */
-}
-
-#filters select:focus {
-    border-color: #ff0;
+    margin-bottom: 2.5rem;
     background: rgba(0, 0, 0, 0.7);
+    padding: 1.5rem;
+    border: 2px solid #0f0;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
 }
 
-/* Resultados */
-#results {
-    margin-top: 2rem; /* Más margen superior */
+#filters .filter-group {
+    margin-bottom: 1.5rem;
+}
+
+#filters .filter-title {
+    font-size: 1.2rem;
+    color: #0f0;
+    text-shadow: 0 0 10px #0f0, 0 0 20px #0f0;
+    margin-bottom: 1rem;
+}
+
+#filters .checkbox-label {
     display: flex;
-    gap: 1.5rem; /* Más espacio entre elementos */
-    overflow-x: auto;
-    overflow-y: hidden;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 5px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+#filters .checkbox-label:hover {
+    background: rgba(0, 255, 0, 0.1);
+    transform: translateX(5px);
+}
+
+#filters input[type="checkbox"] {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #0f0;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+#filters input[type="checkbox"]:checked {
+    background: #0f0;
+    border-color: #0f0;
+}
+
+#filters input[type="checkbox"]:checked::after {
+    content: '✔';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #000;
+    font-size: 12px;
+}
+
+#filters input[type="checkbox"]:hover {
+    border-color: #ff0;
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.8);
+}
+
+/* Panel flotante para los resultados */
+.results-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 1000px;
+    max-height: 80vh;
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid #0f0;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.7);
+    padding: 1.5rem;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none; /* Oculto por defecto */
+}
+
+/* Botón para cerrar el panel */
+.close-panel {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ff0;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.9rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.close-panel:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.8);
+}
+
+/* Fondo oscuro cuando el panel está abierto */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+    display: none; /* Oculto por defecto */
+}
+
+/* Mostrar el panel y el overlay */
+.results-panel.active, .overlay.active {
+    display: block;
+}
+
+/* Resultados en el panel flotante */
+#results {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
     padding-bottom: 1rem;
-    max-height: 70vh;
 }
 
 .store-block {
     background: rgba(0, 0, 0, 0.8);
-    border-radius: 0;
+    border-radius: 10px;
     padding: 1.5rem;
     border: 2px solid #0f0;
-    min-width: 300px;
-    flex: 1;
-    overflow-y: auto;
-    max-height: 60vh;
     box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
 }
 
@@ -164,7 +252,7 @@ button[type="submit"]:hover {
 
 .result-item {
     background: rgba(0, 0, 0, 0.5);
-    border-radius: 0;
+    border-radius: 5px;
     padding: 1rem;
     margin-bottom: 1rem;
     border: 2px solid #0f0;
@@ -196,7 +284,7 @@ button[type="submit"]:hover {
     background: linear-gradient(135deg, #ff0, #f90);
     color: #000;
     text-decoration: none;
-    border-radius: 0;
+    border-radius: 5px;
     font-size: 0.9rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 0 10px rgba(255, 255, 0, 0.5);
@@ -205,4 +293,38 @@ button[type="submit"]:hover {
 .result-item a:hover {
     transform: translateY(-3px);
     box-shadow: 0 0 20px rgba(255, 255, 0, 0.8);
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    #game-form {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    #game-name {
+        width: 100%;
+    }
+
+    #filters .checkbox-label {
+        font-size: 0.9rem;
+    }
+
+    #filters input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+    }
+
+    .results-panel {
+        width: 90%;
+        padding: 1rem;
+    }
+
+    .store-block {
+        min-width: 250px;
+    }
 }
