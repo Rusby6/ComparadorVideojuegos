@@ -4,7 +4,7 @@ async function scrapeGamePrices(gameName) {
     let browser;
     try {
         console.log('Iniciando Puppeteer...');
-        browser = await puppeteer.launch({ headless: false }); 
+        browser = await puppeteer.launch({ headless: true }); 
         const page = await browser.newPage();
         const results = [];
 
