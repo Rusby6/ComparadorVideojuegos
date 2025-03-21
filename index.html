@@ -16,22 +16,58 @@
             <button type="submit">Buscar</button>
         </form>
         <div id="filters">
-            <label for="price-range">Rango de Precio:</label>
-            <select id="price-range">
-                <option value="indiferente">Indiferente</option>
-                <option value="0-20">$0 - $20</option>
-                <option value="20-50">$20 - $50</option>
-                <option value="50-100">$50 - $100</option>
-                <option value="100+">$100+</option>
-            </select>
-            <label for="store">Tienda:</label>
-            <select id="store">
-                <option value="all">Todas</option>
-                <option value="steam">Steam</option>
-                <option value="epic">Epic Games</option>
-                <option value="humble">Humble Bundle</option>
-            </select>
+            <!-- Filtro de rango de precios -->
+            <div class="filter-group">
+                <div class="filter-title">Rango de Precio:</div>
+                <div>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="price-range" value="0-20">
+                        <span>$0 - $20</span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="price-range" value="20-50">
+                        <span>$20 - $50</span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="price-range" value="50-100">
+                        <span>$50 - $100</span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="price-range" value="100+">
+                        <span>$100+</span>
+                    </label>
+                </div>
+            </div>
+    
+            <!-- Filtro de tiendas -->
+            <div class="filter-group">
+                <div class="filter-title">Tienda:</div>
+                <div>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="store" value="all">
+                        <span>Todas</span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="store" value="steam">
+                        <span>Steam</span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="store" value="epic">
+                        <span>Epic Games</span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="store" value="humble">
+                        <span>Humble Bundle</span>
+                    </label>
+                </div>
+            </div>
         </div>
+    </div>
+    
+    <!-- Panel flotante para los resultados -->
+    <div class="overlay"></div>
+    <div class="results-panel">
+        <button class="close-panel">Cerrar</button>
         <div id="results"></div>
     </div>
     <script src="renderer.js"></script>
