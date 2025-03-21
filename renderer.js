@@ -1,8 +1,10 @@
 document.getElementById('game-form').addEventListener('submit', async (event) => {
     event.preventDefault();
     const gameName = document.getElementById('game-name').value;
-    const priceRange = document.getElementById('price-range').value;
-    const store = document.getElementById('store').value;
+
+    // Obtener los valores seleccionados en los filtros (checkboxes)
+    const priceRanges = Array.from(document.querySelectorAll('input[name="price-range"]:checked')).map(checkbox => checkbox.value);
+    const stores = Array.from(document.querySelectorAll('input[name="store"]:checked')).map(checkbox => checkbox.value);
 
     const resultsDiv = document.getElementById('results');
     resultsDiv.innerHTML = '<p>Buscando precios... ⏳</p>';
@@ -17,13 +19,28 @@ document.getElementById('game-form').addEventListener('submit', async (event) =>
             return;
         }
 
+        // Mapeo de valores del filtro a nombres de tiendas
+        const storeMapping = {
+            'steam': 'Steam',
+            'epic': 'Epic Games',
+            'humble': 'Humble Bundle'
+        };
+
         // Aplicar filtros
         const filteredResults = results.filter(result => {
             const price = parseFloat(result.price.finalPrice.replace('$', ''));
-            const [minPrice, maxPrice] = priceRange === 'indiferente' ? [0, Infinity] : priceRange.split('-').map(Number);
-            const meetsPriceRange = (maxPrice ? price >= minPrice && price <= maxPrice : price >= minPrice);
 
-            const meetsStore = store === 'all' || result.store.toLowerCase() === store;
+            // Filtro de precios (múltiples rangos)
+            const meetsPriceRange = priceRanges.length === 0 || priceRanges.some(range => {
+                if (range === '100+') return price >= 100;
+                const [minPrice, maxPrice] = range.split('-').map(Number);
+                return price >= minPrice && price <= maxPrice;
+            });
+
+            // Filtro de tiendas (múltiples selecciones)
+            const meetsStore = stores.length === 0 || stores.includes('all') || stores.some(store => {
+                return result.store === storeMapping[store];
+            });
 
             return meetsPriceRange && meetsStore;
         });
@@ -68,8 +85,18 @@ document.getElementById('game-form').addEventListener('submit', async (event) =>
             });
             resultsDiv.appendChild(storeBlock);
         }
+
+        // Mostrar el panel flotante
+        document.querySelector('.results-panel').classList.add('active');
+        document.querySelector('.overlay').classList.add('active');
     } catch (error) {
         resultsDiv.innerHTML = '<p>Error al buscar el videojuego. 😢</p>';
         console.error(error);
     }
+});
+
+// Cerrar el panel flotante
+document.querySelector('.close-panel').addEventListener('click', () => {
+    document.querySelector('.results-panel').classList.remove('active');
+    document.querySelector('.overlay').classList.remove('active');
 });
